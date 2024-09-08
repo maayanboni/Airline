@@ -1,0 +1,15 @@
+# ninja log v5
+5	391	1725790691210378407	CMakeFiles/untitled1.dir/CFlightCompany.cpp.o	b1178cf1f0b55b6e
+1	932	1725789340545919136	CMakeFiles/untitled1.dir/CFlightInfo.cpp.o	ab6ec26500b8cc4c
+11	580	1725791084213363146	CMakeFiles/untitled1.dir/main.cpp.o	362b1da53105a02
+6	417	1725790840218064194	CMakeFiles/untitled1.dir/CAddress.cpp.o	b4c3f8fb4e161948
+5	368	1725791032564735827	CMakeFiles/untitled1.dir/CPlane.cpp.o	14feccfdabd03450
+5	397	1725790810862500152	CMakeFiles/untitled1.dir/CCrewMember.cpp.o	42fd963b4f9b032
+580	635	1725791084271631897	untitled1	a7f3dd037ccc4ef5
+9	1147	1725791538323074691	CMakeFiles/untitled1.dir/CAddress.cpp.o	ccfc12d6849eb29d
+9	1203	1725791538353147897	CMakeFiles/untitled1.dir/CFlightCompany.cpp.o	5e9c4804abb528e0
+9	1212	1725791538382440731	CMakeFiles/untitled1.dir/CCrewMember.cpp.o	cc78cc59c2ed1e50
+9	1217	1725791538375357917	CMakeFiles/untitled1.dir/CFlightInfo.cpp.o	ce297088978046d2
+9	1224	1725791538398776559	CMakeFiles/untitled1.dir/CPlane.cpp.o	813ecc1a7c11a08b
+8	1269	1725791538445655676	CMakeFiles/untitled1.dir/main.cpp.o	dbcf3b914b6788f7
+1269	1349	1725791538530932224	untitled1	a7f3dd037ccc4ef5
