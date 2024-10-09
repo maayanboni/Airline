@@ -1,12 +1,17 @@
 
 #include "CPlane.h"
 
-//C'tor
-CPlane::CPlane(int planeSerial, int numberOfChairs, string model)
+int CPlane::currentSerial = 100;
+
+//D'tor
+CPlane::~CPlane()
 {
-    this->planeSerial = planeSerial;
-    this->model = model;
-    this->numberOfChairs = numberOfChairs;
+    if(model)
+    {
+        delete[] model;
+        model = nullptr;
+    }
+
 }
 
 //Getters
@@ -15,7 +20,7 @@ int CPlane::getPlaneSerial() const
     return this->planeSerial;
 }
 
-string CPlane::getModel() const
+char* CPlane::getModel() const
 {
     return this->model;
 }
@@ -31,7 +36,7 @@ void CPlane::setPlaneSerial(int planeSerial)
     this->planeSerial = planeSerial;
 }
 
-void CPlane::setModel(string model)
+void CPlane::setModel(char* model)
 {
     this->model = model;
 }
@@ -41,14 +46,55 @@ void CPlane::setNumberOfChairs(int numberOfChairs)
     this->numberOfChairs = numberOfChairs;
 }
 
-void CPlane::Print() const
+//Operators
+const CPlane& CPlane::operator=(const CPlane& other)
 {
-    cout << "Plane Serial: " << planeSerial;
-    cout << "\nModel: " << model;
-    cout << " has " << numberOfChairs << "  Chairs" << endl;
+    if(this != &other)
+    {
+        planeSerial = other.planeSerial;
+
+        delete[]model;
+        model = new char[strlen(other.model) + 1];
+        model = other.model;
+
+        numberOfChairs = other.numberOfChairs;
+    }
+    return *this;
 }
 
-bool CPlane::IsEqual(CPlane other) const
+std::ostream& operator<<(std::ostream& os, const CPlane& plane)
 {
-    return this->planeSerial == other.planeSerial;
+    os << "Plane " << plane.planeSerial << " "
+       << "degem " << plane.model << " " << "seats " << plane.numberOfChairs << "\n";
+    return os;
+}
+
+bool CPlane::operator==(const CPlane& other) const
+{
+    return planeSerial == other.planeSerial && model == other.model && numberOfChairs == other.numberOfChairs;
+}
+
+const CPlane& CPlane::operator++()
+{
+    numberOfChairs++;
+    return *this;
+}
+
+CPlane CPlane::operator++(int)
+{
+    CPlane temp(*this);
+    numberOfChairs++;
+    return temp;
+}
+
+
+//General
+void CPlane::Print() const
+{
+    cout << "Plane : " << this << endl;
+}
+
+bool CPlane::IsEqual(const CPlane *other) const
+{
+    return this == other;
 }

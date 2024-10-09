@@ -1,39 +1,40 @@
 
 #include "CCrewMember.h"
 
+int CCrewMember::member = 1000;
+int CCrewMember::START_ID = 1000;
 
 
-int CCrewMember::UpdateMinutes(int minuets)
+//D'tor
+CCrewMember::~CCrewMember()
 {
-    if(minuets <= 0)
-    {
-        return 0;
-    }
-    else
-    {
-        this->airMinuets += minuets;
-        return 1;
-    }
+    delete[]name;
 }
 
+
 //Getters
-string CCrewMember::getCrewMemberName()
+char* CCrewMember::getCrewMemberName() const
 {
     return this->name;
 }
 
-CAddress CCrewMember::getCrewMemberAddress()
+CAddress CCrewMember::getCrewMemberAddress() const
 {
     return this->address;
 }
 
-int CCrewMember::getCrewMemberAirMinuets()
+int CCrewMember::getCrewMemberAirMinuets() const
 {
     return this->airMinuets;
 }
 
+int CCrewMember::getCrewMemberNum() const
+{
+    return this->memberNum;
+}
+
 //Setters
-void CCrewMember::setCrewMemberName(string name)
+void CCrewMember::setCrewMemberName(char* name)
 {
     this->name = name;
 }
@@ -43,15 +44,59 @@ void CCrewMember::setCrewMemberAddress(CAddress address)
     this->address = address;
 }
 
-void CCrewMember::Print() const
+//Operators
+const CCrewMember& CCrewMember::operator=(const CCrewMember& other)
 {
-    cout << "Member name : " << this->name <<
-         "\nAir minuets: " << this->airMinuets<<
-         "\nAddress details :\n";
-    this->address.Print();
+    if(this != &other)
+    {
+        memberNum = other.memberNum;
+
+        delete[]name;
+        name = new char[strlen(other.name) + 1];
+        name = strdup(other.name);
+
+        airMinuets = other.airMinuets;
+
+        address = other.address;
+    }
+    return *this;
 }
 
-bool CCrewMember::IsEqual(CCrewMember member) const
+
+std::ostream& operator<<(std::ostream& os, const CCrewMember& member) {
+    os << "Crew Member:"
+        << member.memberNum << " " << member.name << " "
+       << "minutes: " << member.airMinuets << "\n";
+    return os;
+}
+
+bool CCrewMember::operator==(const CCrewMember& other) const
 {
-    return this->name == member.name;
+    return memberNum == other.memberNum;
+}
+
+bool CCrewMember::operator+=(int num)
+{
+    if (num >= 0)
+    {
+        airMinuets += num;
+        return true;
+    }
+    return false;
+}
+
+//General
+void CCrewMember::UpdateMinutes(int minuets)
+{
+    *this += minuets;
+}
+
+void CCrewMember::Print() const
+{
+    cout << "Member Details : " << this << endl;
+}
+
+bool CCrewMember::IsEqual(CCrewMember other) const
+{
+    return this == &other;
 }
