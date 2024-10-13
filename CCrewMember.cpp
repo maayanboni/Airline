@@ -1,8 +1,4 @@
-
 #include "CCrewMember.h"
-
-int CCrewMember::member = 1000;
-int CCrewMember::START_ID = 1000;
 
 
 //D'tor
@@ -49,8 +45,6 @@ const CCrewMember& CCrewMember::operator=(const CCrewMember& other)
 {
     if(this != &other)
     {
-        memberNum = other.memberNum;
-
         delete[]name;
         name = new char[strlen(other.name) + 1];
         name = strdup(other.name);
@@ -65,7 +59,7 @@ const CCrewMember& CCrewMember::operator=(const CCrewMember& other)
 
 std::ostream& operator<<(std::ostream& os, const CCrewMember& member) {
     os << "Crew Member:"
-        << member.memberNum << " " << member.name << " "
+        <<  " " << member.name << " "
        << "minutes: " << member.airMinuets << "\n";
     return os;
 }

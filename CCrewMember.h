@@ -8,24 +8,18 @@ using namespace std;
 
 class CCrewMember {
 protected:
-    int memberNum;
     char* name;
     int airMinuets;
     CAddress address;
 
 public:
-    static int START_ID;
-    static int member;
-
-
     CCrewMember(const char* name, int airMinuets = 0, const CAddress& address = CAddress())
             :airMinuets(airMinuets), address(address) {
-        memberNum = member++;
         this->name = new char[strlen(name) + 1];
         strcpy(this->name, name);
     }
 
-    CCrewMember(const CCrewMember& other): memberNum(other.memberNum), airMinuets(other.airMinuets), address(other.address)
+    CCrewMember(const CCrewMember& other): airMinuets(other.airMinuets), address(other.address)
     {
         if (other.name)
         {
@@ -49,7 +43,6 @@ public:
     CAddress getCrewMemberAddress() const;
     int getCrewMemberAirMinuets() const;
     int getCrewMemberNum() const;
-
     void setCrewMemberAddress(CAddress address);
     void setCrewMemberName(char* name);
 

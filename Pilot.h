@@ -8,7 +8,7 @@ private:
     bool isCaptain;
 
 public:
-    Pilot(const char* name, int airTime, bool captain, CAddress* addr = nullptr)
+    Pilot(const char* name, bool captain,  CAddress* addr = nullptr, int airTime = 0)
             : CCrewMember(name, airTime, *addr), isCaptain(captain) {}
 
     Pilot(const Pilot& other) : CCrewMember(other), isCaptain(other.isCaptain) {}
@@ -16,6 +16,8 @@ public:
     ~Pilot() {}
 
     bool operator==(const Pilot& other) const;
+    const Pilot& operator=(const Pilot& other);
+
 
     void receiveNewUniform() const;
     void handleTakeoff(int flightMinutes);

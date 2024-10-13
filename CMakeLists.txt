@@ -20,4 +20,6 @@ add_executable(untitled1 main.cpp
         Host.h
         Host.h
         Pilot.cpp
-        Pilot.h)
+        Pilot.h
+        Cargo.cpp
+        Cargo.h)

@@ -3,7 +3,7 @@
 
 #include "CCrewMember.h"
 
-enum HostType{REGULAR, SENIOR, ECONOMIST};
+enum HostType{eRegular, eSuper, eCalcelan};
 const char* types[] = {"Regular", "Senior", "Economist"};
 
 class Host : public CCrewMember {
@@ -11,10 +11,12 @@ private:
     HostType type;
 
 public:
-    Host(const char* name, int airMinuets, HostType type, CAddress* address = nullptr)
+    Host(const char* name, HostType type, CAddress* address = nullptr, int airMinuets = 0)
     : CCrewMember(name, airMinuets, *address), type(type){}
     ~Host(){}
     Host(const Host& other) : CCrewMember(other), type(other.type){}
+
+    const Host& operator=(const Host& other);
 
     void receiveHolidayGift() const;
     void receiveNewUniform() const;
