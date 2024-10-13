@@ -72,7 +72,7 @@ std::ostream& operator<<(std::ostream& os, const CCrewMember& member) {
 
 bool CCrewMember::operator==(const CCrewMember& other) const
 {
-    return memberNum == other.memberNum;
+    return name == other.name;
 }
 
 bool CCrewMember::operator+=(int num)
@@ -99,4 +99,14 @@ void CCrewMember::Print() const
 bool CCrewMember::IsEqual(CCrewMember other) const
 {
     return this == &other;
+}
+
+void CCrewMember::receiveHolidayGift() const
+{
+    cout<<name<<" thanking the company for receiving the holiday gift.\n"<<endl;
+}
+
+void CCrewMember::handleTakeoff(int flightMinutes)
+{
+    airMinuets += flightMinutes;
 }

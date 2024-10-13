@@ -13,4 +13,11 @@ add_executable(untitled1 main.cpp
         CCrewMember.h
         CFlightCompany.cpp
         CFlightCompany.h
-        CAddress.h)
+        CAddress.h
+        Flight.cpp
+        Flight.h
+        Host.cpp
+        Host.h
+        Host.h
+        Pilot.cpp
+        Pilot.h)

@@ -7,8 +7,7 @@
 using namespace std;
 
 class CCrewMember {
-private:
-
+protected:
     int memberNum;
     char* name;
     int airMinuets;
@@ -16,7 +15,6 @@ private:
 
 public:
     static int START_ID;
-
     static int member;
 
 
@@ -58,6 +56,10 @@ public:
     void UpdateMinutes(int minuets);
     void Print() const;
     bool IsEqual(CCrewMember other) const;
+
+    void receiveHolidayGift() const;
+    void handleTakeoff(int flightMinutes);
+
 };
 
 

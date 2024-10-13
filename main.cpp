@@ -14,8 +14,7 @@ using namespace std;
 int main()
 {
     cout << endl << "Checking Address" << endl;
-    CAddress a(0, nullptr, nullptr);
-    //CAddress a(0,NULL,NULL);
+    CAddress a(0,NULL,NULL);
     cin >> a;
     cout << a;
 
@@ -23,7 +22,7 @@ int main()
 
     CFlightCompany* pDelta = new CFlightCompany("Delta");
     cout << endl << "First company" << endl;
-    cout << *pDelta;
+    cout<<*pDelta;
 
 
     CCrewMember*  pCmArr[3];
@@ -130,4 +129,5 @@ int main()
     delete pDelta;
 
     system("pause");
+    return 1;
 }
